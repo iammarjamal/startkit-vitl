@@ -40,7 +40,7 @@ const checkboxOne = ref("");
             class="flex flex-col justify-center items-center h-full min-h-screen w-full min-w-screen"
         >
             <WidgetsTheme icon />
-            <ElementsLink :href="route('home.index')">
+            <ElementsLink href="/fasdfasdfa">
                 <h1 class="text-dark dark:text-light text-9xl">
                     {{ t("hello") }} {{ checkboxOne }}
                 </h1>

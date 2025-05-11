@@ -1,28 +1,28 @@
 <script setup>
-const props = defineProps({ status: Number });
-
-const title = computed(() => {
-    return {
-        503: "503: Service Unavailable",
-        500: "500: Server Error",
-        404: "404: Page Not Found",
-        403: "403: Forbidden",
-    }[props.status];
+const props = defineProps({
+  status: {
+    type: Number,
+    required: true,
+  },
 });
 
-const description = computed(() => {
-    return {
-        503: "Sorry, we are doing some maintenance. Please check back soon.",
-        500: "Whoops, something went wrong on our servers.",
-        404: "Sorry, the page you are looking for could not be found.",
-        403: "Sorry, you are forbidden from accessing this page.",
-    }[props.status];
-});
+const titleMap = {
+  503: "503",
+  500: "500",
+  404: "404",
+  403: "403",
+};
+
+const title = computed(() => titleMap[props.status] || `${props.status}: Unknown Error`);
+const description = computed(() => descriptionMap[props.status] || "An unexpected error occurred.");
 </script>
 
 <template>
-    <div>
-        <h1>{{ title }}</h1>
-        <div>{{ description }}</div>
+    <div
+        class="flex flex-col justify-center items-center h-full min-h-screen px-4 place-content-center"
+    >
+        <div class="h-full">
+            <h1 class="text-dark/60 dark:text-light/60 text-9xl">{{ title }}</h1>
+        </div>
     </div>
 </template>
