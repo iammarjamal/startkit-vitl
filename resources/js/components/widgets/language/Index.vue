@@ -68,7 +68,7 @@ watch(selectOption, (lang) => {
                     switchLanguage(StorageLanguage === 'ar' ? 'en' : 'ar')
                 "
             >
-                <iconify-icon
+                <UiIcon
                     icon="mdi:language"
                     class="text-2xl text-dark dark:text-light"
                 />

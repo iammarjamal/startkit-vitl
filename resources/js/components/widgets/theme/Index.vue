@@ -64,7 +64,7 @@ const options = computed(() => [
         class="select-none"
     >
         <a href="#" class="cursor-pointer">
-            <iconify-icon
+            <UiIcon
                 :icon="
                     isMode === 'auto'
                         ? 'radix-icons:half-2'
