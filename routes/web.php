@@ -21,4 +21,4 @@ Route::get('/{any}', function () {
     ]);
 })->where('any', '.*');
 
-URL::forceHttps();
+// URL::forceHttps();

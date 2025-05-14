@@ -348,7 +348,7 @@ createServer(
     title: (title) => `${title} - ${appName}`,
     resolve: (name) => resolvePageComponent(
       `./pages/${name}.vue`,
-      /* @__PURE__ */ Object.assign({ "./pages/error/pages/index.vue": () => import("./assets/index-3-Um0-Xd.js"), "./pages/home/pages/index.vue": () => import("./assets/index-D3GIKJV4.js") })
+      /* @__PURE__ */ Object.assign({ "./pages/error/pages/index.vue": () => import("./assets/index-WI-3Tmbi.js"), "./pages/home/pages/index.vue": () => import("./assets/index-B1Wd9YKI.js") })
     ),
     setup({ App, props, plugin }) {
       const app = createSSRApp({ render: () => h$1(App, props) });
@@ -371,5 +371,9 @@ createServer(
       app.use(plugin).use(i18n);
       return app;
     }
-  })
+  }),
+  {
+    port: 13714,
+    cluster: true
+  }
 );

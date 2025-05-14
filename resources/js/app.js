@@ -26,7 +26,6 @@ createInertiaApp({
 
         const i18n = createI18n({
             ssr: true,
-            legacy: false,
             locale: locale,
             fallbackLocale: "ar",
         });

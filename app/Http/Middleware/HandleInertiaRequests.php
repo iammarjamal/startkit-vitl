@@ -43,7 +43,8 @@ class HandleInertiaRequests extends Middleware
             ...parent::share($request),
             'app' => [
                 'name' => config('app.name'),
-                'locale' => app()->getLocale()
+                'locale' => app()->getLocale(),
+                'url' => request()->getSchemeAndHttpHost(),
             ],
             'quote' => [
                 'message' => trim($message),

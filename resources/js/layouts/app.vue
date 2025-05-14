@@ -1,15 +1,14 @@
 <script setup>
-import { Head } from '@inertiajs/vue3';
+import { Head } from "@inertiajs/vue3";
 
-// Define Props
 const props = defineProps({
     title: {
         type: String,
-        default: '',
+        default: "",
     },
     desc: {
         type: String,
-        default: '',
+        default: "",
     },
 });
 
@@ -17,7 +16,7 @@ const title = ref(props.title);
 const desc = ref(props.desc);
 
 // Desktop Detection
-const isDesktop = useMediaQuery('(min-width: 768px)');
+const isDesktop = useMediaQuery("(min-width: 768px)");
 </script>
 
 <template>
@@ -34,18 +33,14 @@ const isDesktop = useMediaQuery('(min-width: 768px)');
     </Head>
 
     <!-- App -->
-    <div class="flex h-full flex-col" v-if="isDesktop">
-        <slot></slot>
-    </div>
-    <div
-        class="scrollbar-hide h-full select-none"
-        v-else
-    >
-        <div class="p-2">
-            <!-- <Splash /> -->
+    <main>
+        <div class="flex h-full flex-col desktop" v-if="isDesktop">
+            <slot></slot>
         </div>
-        <slot></slot>
-    </div>
+        <div class="scrollbar-hide h-full select-none phone" v-else>
+            <slot></slot>
+        </div>
+    </main>
     <!-- App -->
 </template>
 

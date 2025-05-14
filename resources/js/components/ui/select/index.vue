@@ -56,7 +56,7 @@ function onOptionSelect(option) {
                             :value="option.label"
                             @select="onOptionSelect(option)"
                             class="mb-0 xs:text-lg lg:text-sm text-dark dark:text-light"
-                            :class="{ 'border-b xs:py-3 lg:py-1.5 lg:pb-1.5 border-secondary-light dark:border-secondary-dark' : index !== props.options.length - 1}">
+                            :class="{ 'xs:py-3 lg:py-2.5 lg:pb-1.5' : index !== props.options.length - 1}">
                             {{ t(option.label) }}
                         </CommandItem>
                     </CommandGroup>
@@ -84,12 +84,12 @@ function onOptionSelect(option) {
                 @update:open="(newOpenValue) => (isOpen = newOpenValue)"
                 class="animate__animated animate__slideInUp animate__fast">
                 <DrawerTrigger as-child>
-                    <Button variant="outline" class="w-full !text-dark dark:!text-light justify-start">
+                    <Button variant="outline" class="w-full text-dark dark:text-light justify-start">
                         {{ selectedOption ? selectedOption.label : props.placeholder }}
                     </Button>
                 </DrawerTrigger>
                 <DrawerContent>
-                    <div class="mt-4 mb-2.5 border-t">
+                    <div class="mt-4 mb-2.5">
                         <optionList />
                     </div>
                 </DrawerContent>

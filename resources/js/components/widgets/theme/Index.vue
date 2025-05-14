@@ -1,6 +1,6 @@
 <script setup>
 import { Icon } from "@iconify/vue";
-import Select from "@/components/elements/select/index.vue";
+import Select from "@/components/ui/select/index.vue";
 
 const { t } = useI18n();
 

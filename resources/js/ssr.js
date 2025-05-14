@@ -8,49 +8,54 @@ import { createI18n } from "vue-i18n";
 
 const appName = import.meta.env.VITE_APP_NAME || "Laravel";
 
-createServer((page) =>
-    createInertiaApp({
-        page,
-        render: renderToString,
-        title: (title) => `${title} - ${appName}`,
-        resolve: (name) =>
-            resolvePageComponent(
-                `./pages/${name}.vue`,
-                import.meta.glob("./pages/**/*.vue")
-            ),
-        setup({ App, props, plugin }) {
-            const app = createSSRApp({ render: () => h(App, props) });
+createServer(
+    (page) =>
+        createInertiaApp({
+            page,
+            render: renderToString,
+            title: (title) => `${title} - ${appName}`,
+            resolve: (name) =>
+                resolvePageComponent(
+                    `./pages/${name}.vue`,
+                    import.meta.glob("./pages/**/*.vue")
+                ),
+            setup({ App, props, plugin }) {
+                const app = createSSRApp({ render: () => h(App, props) });
 
-            // Configure Ziggy for SSR...
-            const ziggyConfig = {
-                ...page.props.ziggy,
-                location: new URL(page.props.ziggy.location),
-            };
+                // Configure Ziggy for SSR...
+                const ziggyConfig = {
+                    ...page.props.ziggy,
+                    location: new URL(page.props.ziggy.location),
+                };
 
-            // Create route function...
-            const route = (name, params, absolute) =>
-                ziggyRoute(name, params, absolute, ziggyConfig);
+                // Create route function...
+                const route = (name, params, absolute) =>
+                    ziggyRoute(name, params, absolute, ziggyConfig);
 
-            // Make route function available globally...
-            app.config.globalProperties.route = route;
+                // Make route function available globally...
+                app.config.globalProperties.route = route;
 
-            // Make route function available globally for SSR...
-            if (typeof window === "undefined") {
-                global.route = route;
-            }
+                // Make route function available globally for SSR...
+                if (typeof window === "undefined") {
+                    global.route = route;
+                }
 
-            const locale = props.initialPage.props.app.locale || "ar";
+                const locale = props.initialPage.props.app.locale || "ar";
 
-            const i18n = createI18n({
-                ssr: true,
-                legacy: false,
-                locale: locale,
-                fallbackLocale: "ar",
-            });
+                const i18n = createI18n({
+                    ssr: true,
+                    legacy: false,
+                    locale: locale,
+                    fallbackLocale: "ar",
+                });
 
-            app.use(plugin).use(i18n);
+                app.use(plugin).use(i18n);
 
-            return app;
-        },
-    })
+                return app;
+            },
+        }),
+    {
+        port: 13714,
+        cluster: true,
+    }
 );

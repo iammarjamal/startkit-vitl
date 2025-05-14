@@ -1,6 +1,6 @@
 <script setup>
 import App from "@/layouts/app.vue";
-const { t } = useI18n();
+import { trans } from 'inertia-translations';
 
 const options = [
     {
@@ -40,11 +40,11 @@ const checkboxOne = ref("");
             class="flex flex-col justify-center items-center h-full min-h-screen w-full min-w-screen"
         >
             <WidgetsTheme icon />
-            <ElementsLink href="/fasdfasdfa">
+            <UiLink href="/auth">
                 <h1 class="text-dark dark:text-light text-9xl">
-                    {{ t("hello") }} {{ checkboxOne }}
+                    {{ trans("app.lang") }} {{ checkboxOne }}
                 </h1>
-            </ElementsLink>
+            </UiLink>
 
             <div class="flex flex-col gap-2.5">
                 <!-- <ElementsModal>
@@ -55,6 +55,7 @@ const checkboxOne = ref("");
                 </ElementsModal> -->
             </div>
 
+            <WidgetsLanguage inline />
             <WidgetsTheme inline />
         </div>
     </App>
