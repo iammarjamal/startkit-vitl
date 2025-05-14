@@ -6,6 +6,13 @@ import { createSSRApp, h } from "vue";
 import { route as ziggyRoute } from "ziggy-js";
 import { createI18n } from "vue-i18n";
 
+// Iconify
+import "iconify-icon";
+
+// Dayjs Locale
+import "dayjs/locale/en";
+import "dayjs/locale/ar";
+
 const appName = import.meta.env.VITE_APP_NAME || "Laravel";
 
 createServer(

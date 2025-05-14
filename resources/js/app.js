@@ -4,6 +4,9 @@ import { createSSRApp, h } from "vue";
 import { ZiggyVue } from "ziggy-js";
 import { createI18n } from "vue-i18n";
 
+// Iconify
+import "iconify-icon";
+
 // Dayjs Locale
 import "dayjs/locale/en";
 import "dayjs/locale/ar";

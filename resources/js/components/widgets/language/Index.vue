@@ -1,5 +1,4 @@
 <script setup>
-import { Icon } from "@iconify/vue";
 import { usePage } from '@inertiajs/vue3'
 import { useI18n } from "vue-i18n";
 const { t, locale } = useI18n();
@@ -69,9 +68,9 @@ watch(selectOption, (lang) => {
                     switchLanguage(StorageLanguage === 'ar' ? 'en' : 'ar')
                 "
             >
-                <Icon
+                <iconify-icon
                     icon="mdi:language"
-                    class="size-6 text-dark dark:text-light"
+                    class="text-2xl text-dark dark:text-light"
                 />
             </a>
         </div>

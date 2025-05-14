@@ -1,5 +1,4 @@
 <script setup>
-import { Icon } from "@iconify/vue";
 import Select from "@/components/ui/select/index.vue";
 
 const { t } = useI18n();
@@ -65,7 +64,7 @@ const options = computed(() => [
         class="select-none"
     >
         <a href="#" class="cursor-pointer">
-            <Icon
+            <iconify-icon
                 :icon="
                     isMode === 'auto'
                         ? 'radix-icons:half-2'
